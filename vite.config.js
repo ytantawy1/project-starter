@@ -12,12 +12,11 @@ export default defineConfig({
 		},
 	},
 	build: {
+		target: "esnext", 
 		rollupOptions: {
 			input: {
 				index: resolve(__dirname, "./index.html"),
-				demo: resolve(__dirname, "./live-demo.html"),
-				login: resolve(__dirname, "./login.html"),
-				user: resolve(__dirname, "./user.html"),
+				admin: resolve(__dirname, "./to-do-list.html"),
 			},
 		},
 	},
