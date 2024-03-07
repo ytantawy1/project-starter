@@ -15,7 +15,7 @@ subscribe(render)
 function render(data) {
     const div = document.createElement('div');
     const toDoList = document.querySelector('#item-container');
-    toDoList.replaceChildren();
+    toDoList.replaceChildren()
     data.forEach((item) => {
         div.prepend(toDoItemTemplate(item))
     })

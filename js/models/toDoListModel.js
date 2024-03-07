@@ -13,22 +13,22 @@ export function notify(data) {
     observers.forEach((observer) => observer(data))
 }
 
-
-
 export async function getToDoData() {
     const dbRef = ref(db, 'todos')
     const response = await get(dbRef)
     let payload = await response.val()
     payload = Object.entries(payload)
-    let toDoItem = payload.map((item) => {
+    let toDoItems = payload.map((item) => {
         return {...item[1], uid: item[0]}
     })
-    if (await createStore(toDoItem)) {
-    notify(toDoItem);
+    if (await createStore(toDoItems)) {
+    notify(toDoItems);
     }
 }
 
 export function deleteToDo(uid) {
     const dbRef = ref(db, `todos/${uid}`)
     remove(dbRef)
+    const store = RemoveFromStore(uid)
+    notify(store)
 }

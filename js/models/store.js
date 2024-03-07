@@ -19,7 +19,7 @@ const getStore = () => {
     return store
 }
 
-const RemoveFromStore =(uid) => {
+const RemoveFromStore = (uid) => {
     store = store.filter((item) => item.uid !== uid)
     return store
 }
