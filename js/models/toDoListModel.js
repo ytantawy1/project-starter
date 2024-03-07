@@ -1,5 +1,6 @@
 import {ref, set, get, push, child, remove, update} from 'firebase/database'
 import { db } from '../lib/firebase/config/firebase/firebaseInit';
+import {createStore, RemoveFromStore} from './store'
 
 let observers = []
 
@@ -22,5 +23,12 @@ export async function getToDoData() {
     let toDoItem = payload.map((item) => {
         return {...item[1], uid: item[0]}
     })
+    if (await createStore(toDoItem)) {
     notify(toDoItem);
+    }
+}
+
+export function deleteToDo(uid) {
+    const dbRef = ref(db, `todos/${uid}`)
+    remove(dbRef)
 }
