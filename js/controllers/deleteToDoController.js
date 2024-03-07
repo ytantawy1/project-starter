@@ -24,6 +24,6 @@ function onCloseDialog(e) {
 }
 
 function onRemoveToDo(e) {
-    deleteToDoController(uid)
+    deleteToDo(uid)
     onCloseDialog()
 }
