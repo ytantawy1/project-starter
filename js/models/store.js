@@ -30,4 +30,11 @@ const updateStore = (todo) => {
     return store
 }
 
-export {getStore, createStore, RemoveFromStore, updateStore}
+const addToStore = (addedToDo) => {
+    store = [...store, addedToDo];
+    return store;
+}
+
+export {getStore, createStore, RemoveFromStore, updateStore, addToStore}
+
+
