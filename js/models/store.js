@@ -36,3 +36,5 @@ const addToStore = (addedToDo) => {
 }
 
 export {getStore, createStore, RemoveFromStore, updateStore, addToStore}
+
+
